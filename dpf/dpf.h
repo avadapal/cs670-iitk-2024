@@ -50,7 +50,7 @@ static inline void traverse(const prgkey_t & prgkey, const block<node_t> & seed,
 {
 	dpf::PRG(prgkey, clear_lsb(seed, 0b11), &s, 1, direction);
 	t = get_lsb(s) ^ (cw_t & prev_t);
-	//s = clear_lsb(xor_if( , , !prev_t), 0b11);
+	s = clear_lsb(xor_if(s ,cw , !prev_t), 0b11);
 	// TODO: Fill up the first two parameters in the above function.
 } // dpf::traverse
 
